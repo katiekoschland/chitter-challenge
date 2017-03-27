@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    'hello'
+    erb :'index'
   end
 
   get '/users/new' do
@@ -20,14 +20,11 @@ class Chitter < Sinatra::Base
     user = User.create(email: params[:email],
                 password: params[:password])
     session[:user_id] = user.id
-    p session[:user_id]
     redirect to('/')
   end
 
   helpers do
     def current_user
-      p session[:user_id]
-      p User.get(session[:user_id])
       @current_user ||= User.get(session[:user_id])
     end
   end
