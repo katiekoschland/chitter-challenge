@@ -6,7 +6,7 @@ require_relative 'data_mapper_setup'
 
 
 class Chitter < Sinatra::Base
-  set :sessions, true
+  enable :sessions
   set :session_secret, 'super secret'
 
   get '/' do

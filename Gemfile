@@ -3,7 +3,6 @@ source "https://rubygems.org"
 ruby '2.4.0'
 
 group :test do
-  gem "database_cleaner"
   gem "capybara"
   gem "rspec"
 end
@@ -15,3 +14,4 @@ gem "data_mapper"
 gem "dm-postgres-adapter"
 gem "shotgun"
 gem "pg"
+gem "database_cleaner"
