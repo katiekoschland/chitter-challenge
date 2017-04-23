@@ -70,6 +70,9 @@ GEM
     multi_json (1.12.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
+    orderly (0.0.3)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
     pg (0.20.0)
     public_suffix (2.0.5)
     rack (1.6.5)
@@ -77,6 +80,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rake (12.0.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -113,8 +117,10 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  orderly
   pg
   rack (= 1.6.5)
+  rake
   rspec
   shotgun
   sinatra
