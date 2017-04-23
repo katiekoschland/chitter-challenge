@@ -17,6 +17,8 @@ require 'capybara/rspec'
 require 'web_helper'
 require './app/data_mapper_setup'
 require './app/models/user'
+require_relative 'helpers/session'
+
 
 Capybara.app = Chitter
 

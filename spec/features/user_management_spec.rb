@@ -25,9 +25,9 @@ feature 'User sign up' do
 
   scenario "I cannot sign up with an invalid email address" do
     expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
-      expect(current_path).to eq('/users')
-        expect(page).to have_content('Email has an invalid format')
-      end
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Email has an invalid format')
+  end
 
   scenario 'I cannot sign up with an existing email' do
     sign_up
@@ -41,8 +41,8 @@ feature 'User sign in' do
 
   let!(:user) do
     User.create(email: 'user@example.com',
-                password: 'password',
-                password_confirmation: 'password')
+    password: 'password',
+    password_confirmation: 'password')
   end
 
   scenario 'with correct credentials' do
@@ -60,5 +60,21 @@ feature 'User sign in' do
   it 'does not authenticate when given an incorrect password' do
     expect(User.authenticate(user.email, 'wrong_stupid_password')).to be_nil
   end
-  
+
+  feature 'User signs out' do
+
+    before(:each) do
+      User.create(email: 'test@test.com',
+      password: 'test',
+      password_confirmation: 'test')
+    end
+
+    scenario 'while being signed in' do
+      sign_in(email: 'test@test.com', password: 'test')
+      click_button 'Sign out'
+      expect(page).to have_content('goodbye!')
+      expect(page).not_to have_content('Welcome, test@test.com')
+    end
+
+  end
 end

@@ -86,4 +86,4 @@ rspec
 
 ### Demo
 
-https://git.heroku.com/chitter-katie.git
+https://chitter-katie.herokuapp.com/
