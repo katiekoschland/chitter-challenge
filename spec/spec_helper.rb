@@ -17,6 +17,7 @@ require 'capybara/rspec'
 require 'web_helper'
 require './app/data_mapper_setup'
 require './app/models/user'
+require './app/models/peep'
 require_relative 'helpers/session'
 
 

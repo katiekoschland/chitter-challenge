@@ -40,7 +40,7 @@ end
 feature 'User sign in' do
 
   let!(:user) do
-    User.create(email: 'user@example.com',
+    User.create(name: 'name', username: 'username', email: 'user@example.com',
     password: 'password',
     password_confirmation: 'password')
   end
@@ -64,7 +64,7 @@ feature 'User sign in' do
   feature 'User signs out' do
 
     before(:each) do
-      User.create(email: 'test@test.com',
+      User.create(name: 'test', username: 'test', email: 'test@test.com',
       password: 'test',
       password_confirmation: 'test')
     end

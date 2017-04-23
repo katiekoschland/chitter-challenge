@@ -1,0 +1,12 @@
+
+
+<h2> Current peeps </h2>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      Peep: <%= peep.message %>
+      By: <%= peep.name %>
+      User: <%= peep.username %>
+    </li>
+  <% end %>
+</ul>

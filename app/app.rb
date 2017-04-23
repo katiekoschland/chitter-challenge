@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/user'
+require_relative 'models/peep'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -21,7 +22,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.new(email: params[:email],
+    @user = User.new(name: params[:name], username: params[:username], email: params[:email],
                      password: params[:password],
                      password_confirmation: params[:password_confirmation])
     if @user.save
@@ -52,6 +53,17 @@ delete '/sessions' do
   session[:user_id] = nil
   flash.keep[:notice] = 'goodbye!'
   redirect to '/'
+end
+
+get '/peeps' do
+  @peeps = Peep.all
+  erb :'peeps/index'
+end
+
+post '/peeps' do
+  user = User.get(session[:user_id])
+  peep = user.peeps.create(message: params[:message], name: user.name, username: user.username)
+  redirect to '/peeps'
 end
 
   helpers do
