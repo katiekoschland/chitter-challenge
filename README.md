@@ -56,8 +56,8 @@ Create local databases:
 
 ````
 psql
-createdb chitter-challenge_test
-createdb chitter-challenge_development
+createdb chitter_test
+createdb chitter_development
 ````
 Migrate/upgrade databases:
 

@@ -16,8 +16,11 @@ require 'database_cleaner'
 require 'capybara/rspec'
 require 'web_helper'
 require './app/data_mapper_setup'
+require './app/models/user'
 
 Capybara.app = Chitter
+
+
 
 
 RSpec.configure do |config|
