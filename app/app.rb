@@ -65,10 +65,8 @@ get '/peeps/new' do
 end
 
 post '/peeps' do
-
-  peep = Peep.create(message: params[:message])
-    current_user.peeps << peep
-    current_user.save
+  user = User.get(session[:user_id])
+    peep = user.peeps.create(message: params[:message], name: user.name, username: user.username)
     redirect '/peeps'
 end
 
