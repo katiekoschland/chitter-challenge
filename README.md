@@ -83,7 +83,3 @@ rspec
 * CSS
 * RSpec
 ````
-
-### Demo
-
-https://chitter-katie.herokuapp.com/
